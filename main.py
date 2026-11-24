@@ -3487,7 +3487,10 @@ if __name__ == '__main__':
         threading.Thread(target=heartbeat_worker, daemon=True).start()
         threading.Thread(target=stopped_task_purge_worker, daemon=True).start()
         threading.Thread(target=resume_tasks_on_startup, daemon=True).start()
-        port = int(os.environ.get('PORT', 26870))
+        
+        # Yahan port 5000 kar diya gaya hai
+        port = int(os.environ.get('PORT', 5000)) 
+        
         logger.info(f"🌐 BINDING TO 0.0.0.0:{port}")
         app.run(host='0.0.0.0', port=port, debug=False, threaded=True)
     except Exception as e:
